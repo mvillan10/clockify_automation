@@ -84,9 +84,9 @@ if ($entryIds.Count -gt 0) {
 Write-Host "Adding new entries...`n" -ForegroundColor Cyan
 $currentDate = $startDate
 while ($currentDate -le $endDate) {
-    if ($currentDate.DayOfWeek -notin @("Saturday", "Sunday")) {
-        $formattedDate = $currentDate.ToString("yyyy-MM-dd")
+    $formattedDate = $currentDate.ToString("yyyy-MM-dd")
 
+    if ($currentDate.DayOfWeek -notin @("Saturday", "Sunday")) {
         $body = @{
             "billable" = $true
             "start" = "${formattedDate}T06:30:00Z"
